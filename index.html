@@ -95,6 +95,18 @@ document.getElementById("details").innerText = "📜 Envoie une missive à Ivan 
         let encodedMessage = encodeURIComponent(`📜 Ivan, voici ma missive : "${playerMessage}"`);
         let whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
         
+        window.open(whatsappLink, '_blank'); // Ouvre WhatsApp dans un nouvel onglet
+        
+        document.getElementById("details").innerText = "🧙‍♂️ Ivan a rejoint votre groupe !
+
+⚔️ La quête commence maintenant ! Prépare-toi pour l'aventure !";
+        document.getElementById("messageForm").classList.add("hidden");
+    } else {
+        alert("Merci d'écrire une missive pour Ivan !");
+    }
+}"`);
+        let whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+        
         window.open(whatsappLink, '_blank');
         
         document.getElementById("details").innerText = "🧙‍♂️ Ivan a rejoint votre groupe !
