@@ -89,9 +89,24 @@ document.getElementById("details").innerText = "📜 Envoie une missive à Ivan 
         }
         
         function sendMessage() {
-            let playerMessage = document.getElementById("playerMessage").value;
-            if (playerMessage.trim() !== "") {
-                document.getElementById("details").innerText = `📜 Missive envoyée ! Ivan le Mage te répondra bientôt pour confirmer votre rendez-vous : "${playerMessage}"
+    let playerMessage = document.getElementById("playerMessage").value;
+    if (playerMessage.trim() !== "") {
+        let phoneNumber = "33658267250"; // Remplace avec TON numéro sans le '+', ex: '33612345678' pour la France.
+        let encodedMessage = encodeURIComponent(`📜 Ivan, voici ma missive : "${playerMessage}"`);
+        let whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+        
+        window.open(whatsappLink, '_blank'); // Ouvre WhatsApp dans un nouvel onglet.
+    } else {
+        alert("Merci d'écrire une missive pour Ivan !");
+    }
+}"`);
+        let whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+        window.location.href = whatsappLink; // Ouvre WhatsApp avec le message pré-rempli.
+    } else {
+        alert("Merci d'écrire une missive pour Ivan !");
+    }
+}"
 
 🧙‍♂️ Ivan a rejoint votre groupe !
 
